@@ -1,0 +1,28 @@
+{
+  "id": "kobar.calculator",
+  "name": "Calculator",
+  "version": "1.0.0",
+  "description": "A fully-featured scientific calculator and real-time currency converter plugin.",
+  "author": "KoBar",
+  "entry": "dist/index.js",
+  "icon": "calculate",
+  "categories": [
+    "Utility",
+    "Productivity"
+  ],
+  "isBeta": false,
+  "githubRepo": "Kobar-Project/calculator-plugin",
+  "languages": [
+    "en",
+    "tr",
+    "de",
+    "es",
+    "fr",
+    "ru",
+    "ar",
+    "zh",
+    "ja",
+    "hi"
+  ],
+  "versionNote": "Initial Plugin Release"
+}
