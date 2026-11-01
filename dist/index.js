@@ -5,6 +5,9 @@
   window.CALC_TRANSLATIONS = {
     en: {
       calculator: "Calculator",
+      segStandard: "Standard",
+      segScientific: "Scientific",
+      segCurrency: "Currency",
       currencyConverter: "Currency Converter",
       searchCurrency: "Search currency...",
       ratesUpdated: "Rates updated",
@@ -23,6 +26,9 @@
     },
     tr: {
       calculator: "Hesap Makinesi",
+      segStandard: "Standart",
+      segScientific: "Bilimsel",
+      segCurrency: "Döviz",
       currencyConverter: "Döviz Çevirici",
       searchCurrency: "Para birimi ara...",
       ratesUpdated: "Kurlar güncellendi",
@@ -41,6 +47,9 @@
     },
     de: {
       calculator: "Rechner",
+      segStandard: "Standard",
+      segScientific: "Wissenschaftlich",
+      segCurrency: "Währung",
       currencyConverter: "Währungsrechner",
       searchCurrency: "Währung suchen...",
       ratesUpdated: "Kurse aktualisiert",
@@ -59,6 +68,9 @@
     },
     fr: {
       calculator: "Calculatrice",
+      segStandard: "Standard",
+      segScientific: "Scientifique",
+      segCurrency: "Devises",
       currencyConverter: "Convertisseur de devises",
       searchCurrency: "Rechercher une devise...",
       ratesUpdated: "Taux mis à jour",
@@ -77,6 +89,9 @@
     },
     es: {
       calculator: "Calculadora",
+      segStandard: "Estándar",
+      segScientific: "Científica",
+      segCurrency: "Divisas",
       currencyConverter: "Conversor de divisas",
       searchCurrency: "Buscar divisa...",
       ratesUpdated: "Tasas actualizadas",
@@ -95,6 +110,9 @@
     },
     ru: {
       calculator: "Калькулятор",
+      segStandard: "Обычный",
+      segScientific: "Научный",
+      segCurrency: "Валюта",
       currencyConverter: "Конвертер валют",
       searchCurrency: "Поиск валюты...",
       ratesUpdated: "Курсы обновлены",
@@ -113,6 +131,9 @@
     },
     ja: {
       calculator: "電卓",
+      segStandard: "標準",
+      segScientific: "関数",
+      segCurrency: "通貨",
       currencyConverter: "通貨換算",
       searchCurrency: "通貨を検索...",
       ratesUpdated: "レート更新済み",
@@ -131,6 +152,9 @@
     },
     zh: {
       calculator: "计算器",
+      segStandard: "标准",
+      segScientific: "科学",
+      segCurrency: "货币",
       currencyConverter: "货币转换器",
       searchCurrency: "搜索货币...",
       ratesUpdated: "汇率已更新",
@@ -149,6 +173,9 @@
     },
     ar: {
       calculator: "آلة حاسبة",
+      segStandard: "عادي",
+      segScientific: "علمي",
+      segCurrency: "العملات",
       currencyConverter: "محول العملات",
       searchCurrency: "ابحث عن العملة...",
       ratesUpdated: "تم تحديث الأسعار",
@@ -167,6 +194,9 @@
     },
     hi: {
       calculator: "कैलकुलेटर",
+      segStandard: "मानक",
+      segScientific: "वैज्ञानिक",
+      segCurrency: "मुद्रा",
       currencyConverter: "मुद्रा परिवर्तक",
       searchCurrency: "मुद्रा खोजें...",
       ratesUpdated: "दरें अपडेट की गईं",
@@ -283,13 +313,18 @@
   };
   let sessionDefaultCurrency = null;
   const KBC_CSS = `
-.kbc-shell{border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27));border:1px solid var(--kb-stroke-subtle,var(--theme-border,rgba(255,255,255,.1)));box-shadow:var(--kb-shadow-e3,0 12px 32px rgba(0,0,0,.45));color:var(--kb-fg-1,#f2f3f7);font-family:var(--kb-font,inherit)}
+.kbc-shell{display:flex;flex-direction:column;border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27));border:1px solid var(--kb-stroke-subtle,var(--theme-border,rgba(255,255,255,.1)));box-shadow:var(--kb-shadow-e3,0 12px 32px rgba(0,0,0,.45));color:var(--kb-fg-1,#f2f3f7);font-family:var(--kb-font,inherit)}
 .kbc-icon{font-family:'Material Symbols Rounded','Material Symbols Outlined';font-variation-settings:'FILL' 0,'wght' 400}
 .kbc-icon--fill{font-variation-settings:'FILL' 1,'wght' 400}
 .kbc-hicon{width:44px;height:44px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.18)));color:var(--kb-accent,var(--theme-primary,#8b9cff))}
 .kbc-title{font-family:var(--kb-font-display,inherit);font-size:19px;font-weight:600;line-height:1.2}
 .kbc-circle{width:36px;height:36px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
 .kbc-circle:hover{filter:brightness(1.2)}
+.kbc-seg{display:flex;gap:4px;padding:4px;border-radius:999px;margin-bottom:12px;background:var(--kb-bg-inset,rgba(255,255,255,.06))}
+.kbc-seg button{flex:1;min-width:0;height:36px;border-radius:999px;padding:0 6px;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--kb-fg-2,#b4b8c6)}
+.kbc-seg button:hover{color:var(--kb-fg-1,#f2f3f7)}
+.kbc-seg button[aria-pressed=true]{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
+.kbc-body{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden}
 .kbc-circle--on{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
 .kbc-chip{height:28px;padding:0 10px;border-radius:10px;font-size:12px;font-weight:600;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
 .kbc-hero{background:var(--kb-bg-inset,rgba(255,255,255,.06));border-radius:24px;padding:12px 18px;text-align:right}
@@ -567,7 +602,7 @@
     const sidebarPosition = useStore((state) => state.sidebarPosition);
     const getPopupStyle = () => {
       if (!anchorRect) return { display: "none" };
-      const popupHeight = mode === "scientific" ? 720 : 560;
+      const popupHeight = Math.min(mode === "scientific" ? 790 : 640, (screenBounds?.height ?? 800) - 48);
       const popupWidth = mode === "scientific" ? 400 : 320;
       const screenHeight = screenBounds?.height ?? 800;
       const screenWidth = screenBounds?.width ?? 1200;
@@ -577,6 +612,7 @@
         position: "absolute",
         zIndex: 99999,
         width: `${popupWidth}px`,
+        maxHeight: `${screenHeight - 48}px`,
         pointerEvents: "auto",
         willChange: "transform, opacity",
         transition: "width 0.3s ease"
@@ -633,7 +669,7 @@
         if (!popupRef.current || !anchorRect || !isSmartRef.current) return;
         const newX = e.detail.x;
         const newY = e.detail.y;
-        const popupHeight = mode === "scientific" ? 720 : 560;
+        const popupHeight = Math.min(mode === "scientific" ? 790 : 640, (screenBounds?.height ?? 800) - 48);
         const popupWidth = mode === "scientific" ? 400 : 320;
         const screenXInViewport = (screenBounds?.x ?? 0) - window.screenX;
         const screenYInViewport = (screenBounds?.y ?? 0) - window.screenY;
@@ -949,7 +985,7 @@
         className: `kbc-shell pointer-events-auto overflow-hidden ${mode === "scientific" ? "kbc-dense" : ""}`,
         style: getPopupStyle()
       },
-      /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center", style: { gap: 12, marginBottom: 16 } }, /* @__PURE__ */ window.React.createElement("div", { className: "kbc-hicon" }, /* @__PURE__ */ window.React.createElement("span", { className: "kbc-icon kbc-icon--fill material-symbols-outlined", style: { fontSize: 24 } }, mode === "currency" ? "payments" : "calculate")), /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 min-w-0 drag-region" }, /* @__PURE__ */ window.React.createElement("div", { className: "kbc-title truncate" }, mode === "currency" ? t("currencyConverter") : t("calculator"))), /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center", style: { gap: 6 } }, mode === "scientific" && /* @__PURE__ */ window.React.createElement(
+      /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center", style: { gap: 12, marginBottom: 12, flex: "none" } }, /* @__PURE__ */ window.React.createElement("div", { className: "kbc-hicon" }, /* @__PURE__ */ window.React.createElement("span", { className: "kbc-icon kbc-icon--fill material-symbols-outlined", style: { fontSize: 24 } }, mode === "currency" ? "payments" : "calculate")), /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 min-w-0 drag-region" }, /* @__PURE__ */ window.React.createElement("div", { className: "kbc-title" }, mode === "currency" ? t("currencyConverter") : t("calculator"))), /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center", style: { gap: 6 } }, mode === "scientific" && /* @__PURE__ */ window.React.createElement(
         "button",
         {
           onClick: () => setAngleMode(angleMode === "DEG" ? "RAD" : "DEG"),
@@ -960,42 +996,6 @@
       ), /* @__PURE__ */ window.React.createElement(
         "button",
         {
-          onClick: () => {
-            if (mode === "scientific") {
-              setMode("basic");
-              setIsScientific(false);
-              localStorage.setItem("kobar_calc_scientific", "false");
-            } else {
-              setMode("scientific");
-              setIsScientific(true);
-              localStorage.setItem("kobar_calc_scientific", "true");
-            }
-          },
-          className: `kbc-circle no-drag-region ${mode === "scientific" ? "kbc-circle--on" : ""}`,
-          title: mode === "scientific" ? t("basicMode") : t("scientificMode"),
-          "aria-label": mode === "scientific" ? t("basicMode") : t("scientificMode"),
-          "aria-pressed": mode === "scientific"
-        },
-        /* @__PURE__ */ window.React.createElement("span", { className: "kbc-icon material-symbols-outlined", style: { fontSize: 20 } }, "function")
-      ), /* @__PURE__ */ window.React.createElement(
-        "button",
-        {
-          onClick: () => {
-            if (mode === "currency") {
-              setMode(isScientific ? "scientific" : "basic");
-            } else {
-              setMode("currency");
-            }
-          },
-          className: `kbc-circle no-drag-region ${mode === "currency" ? "kbc-circle--on" : ""}`,
-          title: mode === "currency" ? t("calculator") : t("currencyConverter"),
-          "aria-label": mode === "currency" ? t("calculator") : t("currencyConverter"),
-          "aria-pressed": mode === "currency"
-        },
-        /* @__PURE__ */ window.React.createElement("span", { className: "kbc-icon material-symbols-outlined", style: { fontSize: 20 } }, "payments")
-      ), /* @__PURE__ */ window.React.createElement(
-        "button",
-        {
           onClick: () => onClose(),
           className: "kbc-circle no-drag-region",
           title: tc(),
@@ -1003,7 +1003,30 @@
         },
         /* @__PURE__ */ window.React.createElement("span", { className: "kbc-icon material-symbols-outlined", style: { fontSize: 20 } }, "close")
       ))),
-      mode === "currency" ? /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 flex flex-col" }, /* @__PURE__ */ window.React.createElement("div", { className: "kbc-card flex flex-col gap-2 relative", style: { marginBottom: 12 } }, /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center justify-between gap-2" }, /* @__PURE__ */ window.React.createElement(
+      /* @__PURE__ */ window.React.createElement("div", { className: "kbc-seg", role: "group", style: { flex: "none" } }, [["basic", "segStandard", "basicMode"], ["scientific", "segScientific", "scientificMode"], ["currency", "segCurrency", "currencyConverter"]].map(([m, k, full]) => /* @__PURE__ */ window.React.createElement(
+        "button",
+        {
+          key: m,
+          className: "no-drag-region",
+          "aria-pressed": mode === m,
+          title: t(full),
+          onClick: () => {
+            if (m === "scientific") {
+              setMode("scientific");
+              setIsScientific(true);
+              localStorage.setItem("kobar_calc_scientific", "true");
+            } else if (m === "basic") {
+              setMode("basic");
+              setIsScientific(false);
+              localStorage.setItem("kobar_calc_scientific", "false");
+            } else {
+              setMode("currency");
+            }
+          }
+        },
+        t(k)
+      ))),
+      /* @__PURE__ */ window.React.createElement("div", { className: "kbc-body" }, mode === "currency" ? /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 flex flex-col" }, /* @__PURE__ */ window.React.createElement("div", { className: "kbc-card flex flex-col gap-2 relative", style: { marginBottom: 12 } }, /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center justify-between gap-2" }, /* @__PURE__ */ window.React.createElement(
         "button",
         {
           onClick: () => setSelectorMode("from"),
@@ -1075,7 +1098,7 @@
           className: `kbc-sci no-drag-region ${memory !== 0 && (m === "MR" || m === "MC") ? "kbc-sci--on" : ""}`
         },
         m
-      ))), isScientific && /* @__PURE__ */ window.React.createElement("div", { className: "grid grid-cols-5 gap-1.5 mb-2" }, /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("sin"), title: "Sine" }, "sin"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("cos"), title: "Cosine" }, "cos"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("tan"), title: "Tangent" }, "tan"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("ln"), title: "Natural Log" }, "ln"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("log"), title: "Log base 10" }, "log"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("asin"), title: "Arc Sine" }, "sin⁻¹"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("acos"), title: "Arc Cosine" }, "cos⁻¹"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("atan"), title: "Arc Tangent" }, "tan⁻¹"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("e^x"), title: "e to the power x" }, "eˣ"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("10^x"), title: "10 to the power x" }, "10ˣ"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("√"), title: "Square Root" }, "√"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("∛"), title: "Cube Root" }, "∛"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("x²"), title: "Square" }, "x²"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("x³"), title: "Cube" }, "x³"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleOperator("^"), title: "Power" }, "xʸ"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("n!"), title: "Factorial" }, "n!"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("1/x"), title: "Reciprocal" }, "1/x"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("|x|"), title: "Absolute" }, "|x|"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => insertConstant(Math.PI), title: "Pi" }, "π"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => insertConstant(Math.E), title: "Euler's Number" }, "e")), /* @__PURE__ */ window.React.createElement("div", { className: "grid grid-cols-4 gap-2 mb-2" }, /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleParenOpen, className: "kbc-key--op" }, "("), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleParenClose, className: "kbc-key--op" }, ")"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleScientific("±"), className: "kbc-key--op", title: "Plus/Minus" }, "±"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("÷"), className: "kbc-key--op" }, "÷")), /* @__PURE__ */ window.React.createElement("div", { className: "grid grid-cols-4 gap-2" }, /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleClear, className: "kbc-key--danger" }, "C"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("mod"), className: "kbc-key--op", title: "Modulo" }, "mod"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleScientific("%"), className: "kbc-key--op", title: "Percentage" }, "%"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("×"), className: "kbc-key--op" }, "×"), [7, 8, 9].map((n) => /* @__PURE__ */ window.React.createElement(CalcButton, { key: n, onClick: () => handleDigit(String(n)), className: "" }, " ", n, " ")), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("-"), className: "kbc-key--op" }, "−"), [4, 5, 6].map((n) => /* @__PURE__ */ window.React.createElement(CalcButton, { key: n, onClick: () => handleDigit(String(n)), className: "" }, " ", n, " ")), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("+"), className: "kbc-key--op" }, "+"), [1, 2, 3].map((n) => /* @__PURE__ */ window.React.createElement(CalcButton, { key: n, onClick: () => handleDigit(String(n)), className: "" }, " ", n, " ")), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleEqual, className: "kbc-key--eq row-span-2 h-full" }, "="), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => !display.includes(".") && handleDigit("."), className: "" }, "."), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleDigit("0"), className: "" }, "0"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleBackspace, className: "", title: "Backspace" }, /* @__PURE__ */ window.React.createElement("span", { className: "kbc-icon material-symbols-outlined text-[16px]" }, "backspace"))), isScientific && history.length > 0 && /* @__PURE__ */ window.React.createElement("div", { className: "mt-2 border-t border-white/5 pt-2 max-h-20 overflow-y-auto custom-scrollbar" }, history.map((h, i) => /* @__PURE__ */ window.React.createElement("div", { key: i, className: "text-[10px] text-slate-500 truncate py-0.5 tabular-nums" }, h)))),
+      ))), isScientific && /* @__PURE__ */ window.React.createElement("div", { className: "grid grid-cols-5 gap-1.5 mb-2" }, /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("sin"), title: "Sine" }, "sin"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("cos"), title: "Cosine" }, "cos"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("tan"), title: "Tangent" }, "tan"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("ln"), title: "Natural Log" }, "ln"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("log"), title: "Log base 10" }, "log"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("asin"), title: "Arc Sine" }, "sin⁻¹"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("acos"), title: "Arc Cosine" }, "cos⁻¹"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("atan"), title: "Arc Tangent" }, "tan⁻¹"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("e^x"), title: "e to the power x" }, "eˣ"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("10^x"), title: "10 to the power x" }, "10ˣ"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("√"), title: "Square Root" }, "√"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("∛"), title: "Cube Root" }, "∛"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("x²"), title: "Square" }, "x²"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("x³"), title: "Cube" }, "x³"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleOperator("^"), title: "Power" }, "xʸ"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("n!"), title: "Factorial" }, "n!"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("1/x"), title: "Reciprocal" }, "1/x"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => handleScientific("|x|"), title: "Absolute" }, "|x|"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => insertConstant(Math.PI), title: "Pi" }, "π"), /* @__PURE__ */ window.React.createElement(SciFnButton, { onClick: () => insertConstant(Math.E), title: "Euler's Number" }, "e")), /* @__PURE__ */ window.React.createElement("div", { className: "grid grid-cols-4 gap-2 mb-2" }, /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleParenOpen, className: "kbc-key--op" }, "("), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleParenClose, className: "kbc-key--op" }, ")"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleScientific("±"), className: "kbc-key--op", title: "Plus/Minus" }, "±"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("÷"), className: "kbc-key--op" }, "÷")), /* @__PURE__ */ window.React.createElement("div", { className: "grid grid-cols-4 gap-2" }, /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleClear, className: "kbc-key--danger" }, "C"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("mod"), className: "kbc-key--op", title: "Modulo" }, "mod"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleScientific("%"), className: "kbc-key--op", title: "Percentage" }, "%"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("×"), className: "kbc-key--op" }, "×"), [7, 8, 9].map((n) => /* @__PURE__ */ window.React.createElement(CalcButton, { key: n, onClick: () => handleDigit(String(n)), className: "" }, " ", n, " ")), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("-"), className: "kbc-key--op" }, "−"), [4, 5, 6].map((n) => /* @__PURE__ */ window.React.createElement(CalcButton, { key: n, onClick: () => handleDigit(String(n)), className: "" }, " ", n, " ")), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleOperator("+"), className: "kbc-key--op" }, "+"), [1, 2, 3].map((n) => /* @__PURE__ */ window.React.createElement(CalcButton, { key: n, onClick: () => handleDigit(String(n)), className: "" }, " ", n, " ")), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleEqual, className: "kbc-key--eq row-span-2 h-full" }, "="), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => !display.includes(".") && handleDigit("."), className: "" }, "."), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: () => handleDigit("0"), className: "" }, "0"), /* @__PURE__ */ window.React.createElement(CalcButton, { onClick: handleBackspace, className: "", title: "Backspace" }, /* @__PURE__ */ window.React.createElement("span", { className: "kbc-icon material-symbols-outlined text-[16px]" }, "backspace"))), isScientific && history.length > 0 && /* @__PURE__ */ window.React.createElement("div", { className: "mt-2 border-t border-white/5 pt-2 max-h-20 overflow-y-auto custom-scrollbar" }, history.map((h, i) => /* @__PURE__ */ window.React.createElement("div", { key: i, className: "text-[10px] text-slate-500 truncate py-0.5 tabular-nums" }, h))))),
       selectorMode && /* @__PURE__ */ window.React.createElement("div", { className: "kbc-modal absolute inset-0 z-[100] flex flex-col" }, /* @__PURE__ */ window.React.createElement("div", { className: "flex justify-between items-center mb-3" }, /* @__PURE__ */ window.React.createElement("span", { className: "kbc-title", style: { fontSize: 17 } }, t("selectCurrency")), /* @__PURE__ */ window.React.createElement(
         "button",
         {

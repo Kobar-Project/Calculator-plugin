@@ -5,6 +5,9 @@ const { useState, useRef, useEffect } = React;
 (window as any).CALC_TRANSLATIONS = {
     en: {
         calculator: "Calculator",
+        segStandard: "Standard",
+        segScientific: "Scientific",
+        segCurrency: "Currency",
         currencyConverter: "Currency Converter",
         searchCurrency: "Search currency...",
         ratesUpdated: "Rates updated",
@@ -23,6 +26,9 @@ const { useState, useRef, useEffect } = React;
     },
     tr: {
         calculator: "Hesap Makinesi",
+        segStandard: "Standart",
+        segScientific: "Bilimsel",
+        segCurrency: "Döviz",
         currencyConverter: "Döviz Çevirici",
         searchCurrency: "Para birimi ara...",
         ratesUpdated: "Kurlar güncellendi",
@@ -41,6 +47,9 @@ const { useState, useRef, useEffect } = React;
     },
     de: {
         calculator: "Rechner",
+        segStandard: "Standard",
+        segScientific: "Wissenschaftlich",
+        segCurrency: "Währung",
         currencyConverter: "Währungsrechner",
         searchCurrency: "Währung suchen...",
         ratesUpdated: "Kurse aktualisiert",
@@ -59,6 +68,9 @@ const { useState, useRef, useEffect } = React;
     },
     fr: {
         calculator: "Calculatrice",
+        segStandard: "Standard",
+        segScientific: "Scientifique",
+        segCurrency: "Devises",
         currencyConverter: "Convertisseur de devises",
         searchCurrency: "Rechercher une devise...",
         ratesUpdated: "Taux mis à jour",
@@ -77,6 +89,9 @@ const { useState, useRef, useEffect } = React;
     },
     es: {
         calculator: "Calculadora",
+        segStandard: "Estándar",
+        segScientific: "Científica",
+        segCurrency: "Divisas",
         currencyConverter: "Conversor de divisas",
         searchCurrency: "Buscar divisa...",
         ratesUpdated: "Tasas actualizadas",
@@ -95,6 +110,9 @@ const { useState, useRef, useEffect } = React;
     },
     ru: {
         calculator: "Калькулятор",
+        segStandard: "Обычный",
+        segScientific: "Научный",
+        segCurrency: "Валюта",
         currencyConverter: "Конвертер валют",
         searchCurrency: "Поиск валюты...",
         ratesUpdated: "Курсы обновлены",
@@ -113,6 +131,9 @@ const { useState, useRef, useEffect } = React;
     },
     ja: {
         calculator: "電卓",
+        segStandard: "標準",
+        segScientific: "関数",
+        segCurrency: "通貨",
         currencyConverter: "通貨換算",
         searchCurrency: "通貨を検索...",
         ratesUpdated: "レート更新済み",
@@ -131,6 +152,9 @@ const { useState, useRef, useEffect } = React;
     },
     zh: {
         calculator: "计算器",
+        segStandard: "标准",
+        segScientific: "科学",
+        segCurrency: "货币",
         currencyConverter: "货币转换器",
         searchCurrency: "搜索货币...",
         ratesUpdated: "汇率已更新",
@@ -149,6 +173,9 @@ const { useState, useRef, useEffect } = React;
     },
     ar: {
         calculator: "آلة حاسبة",
+        segStandard: "عادي",
+        segScientific: "علمي",
+        segCurrency: "العملات",
         currencyConverter: "محول العملات",
         searchCurrency: "ابحث عن العملة...",
         ratesUpdated: "تم تحديث الأسعار",
@@ -167,6 +194,9 @@ const { useState, useRef, useEffect } = React;
     },
     hi: {
         calculator: "कैलकुलेटर",
+        segStandard: "मानक",
+        segScientific: "वैज्ञानिक",
+        segCurrency: "मुद्रा",
         currencyConverter: "मुद्रा परिवर्तक",
         searchCurrency: "मुद्रा खोजें...",
         ratesUpdated: "दरें अपडेट की गईं",
@@ -290,13 +320,18 @@ let sessionDefaultCurrency: string | null = null;
 
 // --- Canli look: one shared stylesheet (tokens with fallbacks for older hosts) ---
 const KBC_CSS = `
-.kbc-shell{border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27));border:1px solid var(--kb-stroke-subtle,var(--theme-border,rgba(255,255,255,.1)));box-shadow:var(--kb-shadow-e3,0 12px 32px rgba(0,0,0,.45));color:var(--kb-fg-1,#f2f3f7);font-family:var(--kb-font,inherit)}
+.kbc-shell{display:flex;flex-direction:column;border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27));border:1px solid var(--kb-stroke-subtle,var(--theme-border,rgba(255,255,255,.1)));box-shadow:var(--kb-shadow-e3,0 12px 32px rgba(0,0,0,.45));color:var(--kb-fg-1,#f2f3f7);font-family:var(--kb-font,inherit)}
 .kbc-icon{font-family:'Material Symbols Rounded','Material Symbols Outlined';font-variation-settings:'FILL' 0,'wght' 400}
 .kbc-icon--fill{font-variation-settings:'FILL' 1,'wght' 400}
 .kbc-hicon{width:44px;height:44px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.18)));color:var(--kb-accent,var(--theme-primary,#8b9cff))}
 .kbc-title{font-family:var(--kb-font-display,inherit);font-size:19px;font-weight:600;line-height:1.2}
 .kbc-circle{width:36px;height:36px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
 .kbc-circle:hover{filter:brightness(1.2)}
+.kbc-seg{display:flex;gap:4px;padding:4px;border-radius:999px;margin-bottom:12px;background:var(--kb-bg-inset,rgba(255,255,255,.06))}
+.kbc-seg button{flex:1;min-width:0;height:36px;border-radius:999px;padding:0 6px;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--kb-fg-2,#b4b8c6)}
+.kbc-seg button:hover{color:var(--kb-fg-1,#f2f3f7)}
+.kbc-seg button[aria-pressed=true]{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
+.kbc-body{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden}
 .kbc-circle--on{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
 .kbc-chip{height:28px;padding:0 10px;border-radius:10px;font-size:12px;font-weight:600;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
 .kbc-hero{background:var(--kb-bg-inset,rgba(255,255,255,.06));border-radius:24px;padding:12px 18px;text-align:right}
@@ -598,7 +633,7 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
     const getPopupStyle = (): React.CSSProperties => {
         if (!anchorRect) return { display: 'none' };
         
-        const popupHeight = mode === 'scientific' ? 720 : 560;
+        const popupHeight = Math.min(mode === 'scientific' ? 790 : 640, (screenBounds?.height ?? 800) - 48);
         const popupWidth = mode === 'scientific' ? 400 : 320;
         const screenHeight = screenBounds?.height ?? 800;
         const screenWidth = screenBounds?.width ?? 1200;
@@ -609,6 +644,7 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
             position: 'absolute',
             zIndex: 99999,
             width: `${popupWidth}px`,
+            maxHeight: `${screenHeight - 48}px`,
             pointerEvents: 'auto',
             willChange: 'transform, opacity',
             transition: 'width 0.3s ease'
@@ -671,7 +707,7 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
             if (!popupRef.current || !anchorRect || !isSmartRef.current) return;
             const newX = e.detail.x;
             const newY = e.detail.y;
-            const popupHeight = mode === 'scientific' ? 720 : 560;
+            const popupHeight = Math.min(mode === 'scientific' ? 790 : 640, (screenBounds?.height ?? 800) - 48);
             const popupWidth = mode === 'scientific' ? 400 : 320;
             
             const screenXInViewport = (screenBounds?.x ?? 0) - window.screenX;
@@ -970,12 +1006,12 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
             style={getPopupStyle()}
         >
             {/* Header */}
-            <div className="flex items-center" style={{ gap: 12, marginBottom: 16 }}>
+            <div className="flex items-center" style={{ gap: 12, marginBottom: 12, flex: "none" }}>
                 <div className="kbc-hicon">
                     <span className="kbc-icon kbc-icon--fill material-symbols-outlined" style={{ fontSize: 24 }}>{mode === 'currency' ? 'payments' : 'calculate'}</span>
                 </div>
                 <div className="flex-1 min-w-0 drag-region">
-                    <div className="kbc-title truncate">{mode === 'currency' ? t('currencyConverter') : t('calculator')}</div>
+                    <div className="kbc-title">{mode === 'currency' ? t('currencyConverter') : t('calculator')}</div>
                 </div>
                 <div className="flex items-center" style={{ gap: 6 }}>
                     {mode === 'scientific' && (
@@ -987,42 +1023,6 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
                             {angleMode}
                         </button>
                     )}
-                    {/* Scientific Mode Toggle */}
-                    <button
-                        onClick={() => {
-                            if (mode === 'scientific') {
-                                setMode('basic');
-                                setIsScientific(false); localStorage.setItem('kobar_calc_scientific', 'false');
-                            } else {
-                                setMode('scientific');
-                                setIsScientific(true); localStorage.setItem('kobar_calc_scientific', 'true');
-                            }
-                        }}
-                        className={`kbc-circle no-drag-region ${mode === 'scientific' ? 'kbc-circle--on' : ''}`}
-                        title={mode === 'scientific' ? t('basicMode') : t('scientificMode')}
-                        aria-label={mode === 'scientific' ? t('basicMode') : t('scientificMode')}
-                        aria-pressed={mode === 'scientific'}
-                    >
-                        <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>function</span>
-                    </button>
-
-                    {/* Currency Mode Toggle */}
-                    <button
-                        onClick={() => {
-                            if (mode === 'currency') {
-                                setMode(isScientific ? 'scientific' : 'basic');
-                            } else {
-                                setMode('currency');
-                            }
-                        }}
-                        className={`kbc-circle no-drag-region ${mode === 'currency' ? 'kbc-circle--on' : ''}`}
-                        title={mode === 'currency' ? t('calculator') : t('currencyConverter')}
-                        aria-label={mode === 'currency' ? t('calculator') : t('currencyConverter')}
-                        aria-pressed={mode === 'currency'}
-                    >
-                        <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>payments</span>
-                    </button>
-
                     <button
                         onClick={() => onClose()}
                         className="kbc-circle no-drag-region"
@@ -1034,6 +1034,32 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
                 </div>
             </div>
 
+            {/* Mode switcher */}
+            <div className="kbc-seg" role="group" style={{ flex: 'none' }}>
+                {[['basic', 'segStandard', 'basicMode'], ['scientific', 'segScientific', 'scientificMode'], ['currency', 'segCurrency', 'currencyConverter']].map(([m, k, full]) => (
+                    <button
+                        key={m}
+                        className="no-drag-region"
+                        aria-pressed={mode === m}
+                        title={t(full)}
+                        onClick={() => {
+                            if (m === 'scientific') {
+                                setMode('scientific');
+                                setIsScientific(true); localStorage.setItem('kobar_calc_scientific', 'true');
+                            } else if (m === 'basic') {
+                                setMode('basic');
+                                setIsScientific(false); localStorage.setItem('kobar_calc_scientific', 'false');
+                            } else {
+                                setMode('currency');
+                            }
+                        }}
+                    >
+                        {t(k)}
+                    </button>
+                ))}
+            </div>
+
+            <div className="kbc-body">
             {mode === 'currency' ? (
                 <div className="flex-1 flex flex-col">
                     {/* Currency inputs display block */}
@@ -1274,6 +1300,7 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
                     )}
                 </>
             )}
+            </div>
 
             {/* Currency Selector Modal */}
             {selectorMode && (
