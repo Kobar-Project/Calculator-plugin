@@ -31,5 +31,11 @@
     "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Calculator/Calculator2.png",
     "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Calculator/Calculator3.png"
   ],
+  "bar": {
+    "tile": {
+      "template": "value-caption",
+      "sensitive": false
+    }
+  },
   "apiVersion": "1.0.0"
 }
