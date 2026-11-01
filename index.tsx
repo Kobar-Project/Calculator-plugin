@@ -8,42 +8,48 @@ const { useState, useRef, useEffect } = React;
         segStandard: "Standard",
         segScientific: "Scientific",
         segCurrency: "Currency",
-        currencyConverter: "Currency Converter",
+        currencyConverter: "Currency converter",
         searchCurrency: "Search currency...",
         ratesUpdated: "Rates updated",
         failedToFetchRates: "Failed to fetch rates.",
         copyToClipboard: "Copy to clipboard",
-        copied: "Copied!",
-        basicMode: "Basic Mode",
-        scientificMode: "Scientific Mode",
-        refreshRates: "Refresh Rates",
+        copied: "Copied",
+        basicMode: "Basic mode",
+        scientificMode: "Scientific mode",
+        refreshRates: "Refresh rates",
         copyOutputValue: "Copy output value",
         swapCurrencies: "Swap currencies",
-        selectCurrency: "Select Currency",
+        selectCurrency: "Select currency",
         noCurrenciesFound: "No currencies found",
         copy: "Copy",
-        swap: "Swap"
+        swap: "Swap",
+        history: "History",
+        noHistory: "No calculations yet",
+        clearHistory: "Clear history"
     },
     tr: {
         calculator: "Hesap Makinesi",
         segStandard: "Standart",
         segScientific: "Bilimsel",
         segCurrency: "Döviz",
-        currencyConverter: "Döviz Çevirici",
+        currencyConverter: "Döviz çevirici",
         searchCurrency: "Para birimi ara...",
         ratesUpdated: "Kurlar güncellendi",
         failedToFetchRates: "Kurlar alınamadı.",
         copyToClipboard: "Panoya kopyala",
-        copied: "Kopyalandı!",
-        basicMode: "Temel Mod",
-        scientificMode: "Bilimsel Mod",
-        refreshRates: "Kurları Yenile",
+        copied: "Kopyalandı",
+        basicMode: "Temel mod",
+        scientificMode: "Bilimsel mod",
+        refreshRates: "Kurları yenile",
         copyOutputValue: "Çıktı değerini kopyala",
         swapCurrencies: "Para birimlerini değiştir",
-        selectCurrency: "Para Birimi Seç",
+        selectCurrency: "Para birimi seç",
         noCurrenciesFound: "Para birimi bulunamadı",
         copy: "Kopyala",
-        swap: "Değiştir"
+        swap: "Değiştir",
+        history: "Geçmiş",
+        noHistory: "Henüz hesap yok",
+        clearHistory: "Geçmişi temizle"
     },
     de: {
         calculator: "Rechner",
@@ -55,7 +61,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "Kurse aktualisiert",
         failedToFetchRates: "Kurse konnten nicht abgerufen werden.",
         copyToClipboard: "In Zwischenablage kopieren",
-        copied: "Kopiert!",
+        copied: "Kopiert",
         basicMode: "Standardmodus",
         scientificMode: "Wissenschaftlicher Modus",
         refreshRates: "Kurse aktualisieren",
@@ -64,7 +70,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "Währung auswählen",
         noCurrenciesFound: "Keine Währungen gefunden",
         copy: "Kopieren",
-        swap: "Tauschen"
+        swap: "Tauschen",
+        history: "Verlauf",
+        noHistory: "Noch keine Berechnungen",
+        clearHistory: "Verlauf löschen"
     },
     fr: {
         calculator: "Calculatrice",
@@ -76,7 +85,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "Taux mis à jour",
         failedToFetchRates: "Échec de la récupération des taux.",
         copyToClipboard: "Copier dans le presse-papiers",
-        copied: "Copié !",
+        copied: "Copié",
         basicMode: "Mode de base",
         scientificMode: "Mode scientifique",
         refreshRates: "Actualiser les taux",
@@ -85,7 +94,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "Sélectionner une devise",
         noCurrenciesFound: "Aucune devise trouvée",
         copy: "Copier",
-        swap: "Échanger"
+        swap: "Échanger",
+        history: "Historique",
+        noHistory: "Aucun calcul pour le moment",
+        clearHistory: "Effacer l’historique"
     },
     es: {
         calculator: "Calculadora",
@@ -97,7 +109,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "Tasas actualizadas",
         failedToFetchRates: "Error al obtener tasas.",
         copyToClipboard: "Copiar al portapapeles",
-        copied: "¡Copiado!",
+        copied: "Copiado",
         basicMode: "Modo Básico",
         scientificMode: "Modo Científico",
         refreshRates: "Actualizar tasas",
@@ -106,7 +118,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "Seleccionar divisa",
         noCurrenciesFound: "No se encontraron divisas",
         copy: "Copiar",
-        swap: "Intercambiar"
+        swap: "Intercambiar",
+        history: "Historial",
+        noHistory: "Aún no hay cálculos",
+        clearHistory: "Borrar historial"
     },
     ru: {
         calculator: "Калькулятор",
@@ -118,7 +133,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "Курсы обновлены",
         failedToFetchRates: "Не удалось получить курсы.",
         copyToClipboard: "Скопировать в буфер обмена",
-        copied: "Скопировано!",
+        copied: "Скопировано",
         basicMode: "Базовый режим",
         scientificMode: "Научный режим",
         refreshRates: "Обновить курсы",
@@ -127,7 +142,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "Выберите валюту",
         noCurrenciesFound: "Валюты не найдены",
         copy: "Копировать",
-        swap: "Обмен"
+        swap: "Обмен",
+        history: "История",
+        noHistory: "Пока нет вычислений",
+        clearHistory: "Очистить историю"
     },
     ja: {
         calculator: "電卓",
@@ -139,7 +157,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "レート更新済み",
         failedToFetchRates: "レートの取得に失敗しました。",
         copyToClipboard: "クリップボードにコピー",
-        copied: "コピーしました！",
+        copied: "コピーしました",
         basicMode: "基本モード",
         scientificMode: "関数電卓モード",
         refreshRates: "レートを更新",
@@ -148,7 +166,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "通貨を選択",
         noCurrenciesFound: "通貨が見つかりません",
         copy: "コピー",
-        swap: "入替"
+        swap: "入替",
+        history: "履歴",
+        noHistory: "まだ計算がありません",
+        clearHistory: "履歴を消去"
     },
     zh: {
         calculator: "计算器",
@@ -160,7 +181,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "汇率已更新",
         failedToFetchRates: "获取汇率失败。",
         copyToClipboard: "复制到剪贴板",
-        copied: "已复制！",
+        copied: "已复制",
         basicMode: "基本模式",
         scientificMode: "科学模式",
         refreshRates: "刷新汇率",
@@ -169,7 +190,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "选择货币",
         noCurrenciesFound: "未找到货币",
         copy: "复制",
-        swap: "交换"
+        swap: "交换",
+        history: "历史记录",
+        noHistory: "还没有计算",
+        clearHistory: "清除历史记录"
     },
     ar: {
         calculator: "آلة حاسبة",
@@ -181,7 +205,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "تم تحديث الأسعار",
         failedToFetchRates: "فشل في جلب الأسعار.",
         copyToClipboard: "انسخ إلى الحافظة",
-        copied: "تم النسخ!",
+        copied: "تم النسخ",
         basicMode: "الوضع الأساسي",
         scientificMode: "الوضع العلمي",
         refreshRates: "تحديث الأسعار",
@@ -190,7 +214,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "اختر العملة",
         noCurrenciesFound: "لم يتم العثور على عملات",
         copy: "نسخ",
-        swap: "تبديل"
+        swap: "تبديل",
+        history: "السجل",
+        noHistory: "لا توجد عمليات حسابية بعد",
+        clearHistory: "مسح السجل"
     },
     hi: {
         calculator: "कैलकुलेटर",
@@ -202,7 +229,7 @@ const { useState, useRef, useEffect } = React;
         ratesUpdated: "दरें अपडेट की गईं",
         failedToFetchRates: "दरें प्राप्त करने में विफल।",
         copyToClipboard: "क्लिपबोर्ड पर कॉपी करें",
-        copied: "कॉपी किया गया!",
+        copied: "कॉपी किया गया",
         basicMode: "मूल मोड",
         scientificMode: "वैज्ञानिक मोड",
         refreshRates: "दरें ताज़ा करें",
@@ -211,7 +238,10 @@ const { useState, useRef, useEffect } = React;
         selectCurrency: "मुद्रा चुनें",
         noCurrenciesFound: "कोई मुद्रा नहीं मिली",
         copy: "कॉपी",
-        swap: "स्वैप"
+        swap: "स्वैप",
+        history: "इतिहास",
+        noHistory: "अभी तक कोई गणना नहीं",
+        clearHistory: "इतिहास साफ़ करें"
     }
 };
 
@@ -320,40 +350,72 @@ let sessionDefaultCurrency: string | null = null;
 
 // --- Canli look: one shared stylesheet (tokens with fallbacks for older hosts) ---
 const KBC_CSS = `
-.kbc-shell{display:flex;flex-direction:column;border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27));border:1px solid var(--kb-stroke-subtle,var(--theme-border,rgba(255,255,255,.1)));box-shadow:var(--kb-shadow-e3,0 12px 32px rgba(0,0,0,.45));color:var(--kb-fg-1,#f2f3f7);font-family:var(--kb-font,inherit)}
-.kbc-icon{font-family:'Material Symbols Rounded','Material Symbols Outlined';font-variation-settings:'FILL' 0,'wght' 400}
+.kbc-shell{position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27));border:1px solid var(--kb-stroke-subtle,var(--theme-border,rgba(255,255,255,.1)));box-shadow:var(--kb-shadow-e3,0 12px 32px rgba(0,0,0,.45));color:var(--kb-fg-1,#f2f3f7);font-family:var(--kb-font,inherit)}
+.kbc-shell button{cursor:pointer;border:0;font-family:inherit}
+.kbc-shell button:focus-visible,.kbc-shell input:focus-visible{outline:2px solid var(--kb-accent,#8b9cff);outline-offset:2px}
+.kbc-icon{font-family:'Material Symbols Rounded','Material Symbols Outlined';font-variation-settings:'FILL' 0,'wght' 400;font-weight:400;line-height:1}
 .kbc-icon--fill{font-variation-settings:'FILL' 1,'wght' 400}
-.kbc-hicon{width:44px;height:44px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.18)));color:var(--kb-accent,var(--theme-primary,#8b9cff))}
-.kbc-title{font-family:var(--kb-font-display,inherit);font-size:19px;font-weight:600;line-height:1.2}
+.kbc-hicon{width:44px;height:44px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.18)));color:var(--kb-on-container,var(--kb-accent,#8b9cff))}
+.kbc-title{font-family:var(--kb-font-display,inherit);font-size:19px;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .kbc-circle{width:36px;height:36px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
-.kbc-circle:hover{filter:brightness(1.2)}
-.kbc-seg{display:flex;gap:4px;padding:4px;border-radius:999px;margin-bottom:12px;background:var(--kb-bg-inset,rgba(255,255,255,.06))}
-.kbc-seg button{flex:1;min-width:0;height:36px;border-radius:999px;padding:0 6px;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--kb-fg-2,#b4b8c6)}
+.kbc-circle:hover,.kbc-key:hover,.kbc-sci:hover,.kbc-row:hover,.kbc-mini:hover,.kbc-swap:hover{filter:brightness(1.15)}
+.kbc-seg{display:flex;gap:4px;padding:4px;border-radius:999px;margin-bottom:12px;flex:none;background:var(--kb-bg-inset,rgba(255,255,255,.06))}
+.kbc-seg button{flex:1;min-width:0;height:36px;border-radius:999px;padding:0 8px;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:transparent;color:var(--kb-fg-2,#b4b8c6)}
 .kbc-seg button:hover{color:var(--kb-fg-1,#f2f3f7)}
 .kbc-seg button[aria-pressed=true]{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
 .kbc-body{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden}
-.kbc-circle--on{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
-.kbc-chip{height:28px;padding:0 10px;border-radius:10px;font-size:12px;font-weight:600;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
-.kbc-hero{background:var(--kb-bg-inset,rgba(255,255,255,.06));border-radius:24px;padding:12px 18px;text-align:right}
-.kbc-hero-sub{font-size:12px;color:var(--kb-fg-2,#b4b8c6);height:16px;overflow:hidden;white-space:nowrap;font-variant-numeric:tabular-nums}
-.kbc-hero-val{font-family:var(--kb-font-display,inherit);font-size:34px;font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.kbc-dense .kbc-hero-val{font-size:28px}
-.kbc-card{background:var(--kb-bg-surface,var(--theme-surface,#242833));border-radius:24px;padding:14px 16px}
-.kbc-key{height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;background:var(--kb-bg-tile,var(--theme-surface,#242833));color:var(--kb-fg-1,#f2f3f7)}
-.kbc-dense .kbc-key{height:40px;font-size:15px}
-.kbc-key:hover,.kbc-sci:hover,.kbc-row:hover{filter:brightness(1.15)}
+.kbc-hero{background:var(--kb-bg-inset,rgba(255,255,255,.06));border-radius:24px;padding:12px 20px 14px;text-align:right;margin-bottom:12px}
+.kbc-hero-sub{font-size:13px;color:var(--kb-fg-2,#b4b8c6);height:18px;overflow:hidden;white-space:nowrap;font-variant-numeric:tabular-nums}
+.kbc-hero-val{font-family:var(--kb-font-display,inherit);font-size:40px;font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kbc-wide .kbc-hero-val{font-size:36px}
+.kbc-tools{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.kbc-mini{height:32px;min-width:36px;border-radius:999px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:13px;font-weight:600;background:var(--kb-bg-tile,var(--theme-surface,#242833));color:var(--kb-fg-1,#f2f3f7)}
+.kbc-mini--on{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
+.kbc-grid{display:grid;gap:8px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.kbc-key{height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;background:var(--kb-bg-tile,var(--theme-surface,#242833));color:var(--kb-fg-1,#f2f3f7)}
 .kbc-key--op{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
-.kbc-key--danger{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-danger,#ff7b7b)}
+.kbc-key--util{background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
+.kbc-key--danger{background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-danger,#ff7b7b)}
 .kbc-key--eq{background:var(--kb-accent,var(--theme-primary,#8b9cff));color:var(--kb-on-accent,#101218)}
-.kbc-key.h-full{height:100%}
-.kbc-sci{height:34px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;background:var(--kb-bg-tile,var(--theme-surface,#242833));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
-.kbc-sci--on{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)))}
-.kbc-pill{height:36px;border-radius:999px;padding:0 12px;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
-.kbc-round{width:32px;height:32px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
-.kbc-input{width:100%;height:40px;border-radius:999px;padding:0 14px 0 38px;font-size:13px;outline:none;border:0;background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
-.kbc-modal{border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27))}
-.kbc-row{width:100%;min-height:52px;border-radius:16px;padding:6px 12px;display:flex;align-items:center;justify-content:space-between;text-align:left;margin-bottom:8px;background:var(--kb-bg-tile,var(--theme-surface,#242833));color:var(--kb-fg-1,#f2f3f7)}
+.kbc-wide .kbc-grid{gap:6px}
+.kbc-wide .kbc-key{height:42px;font-size:16px;border-radius:14px}
+.kbc-mem{margin-bottom:6px}
+.kbc-split{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px}
+.kbc-sci{height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;background:var(--kb-bg-tile,var(--theme-surface,#242833));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
+.kbc-mem .kbc-sci{height:34px;border-radius:999px;background:var(--kb-bg-inset,rgba(255,255,255,.06))}
+.kbc-sci--on{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)))!important}
+.kbc-fx{position:relative;display:flex;flex-direction:column;gap:4px}
+.kbc-card{background:var(--kb-bg-surface,var(--theme-surface,#242833));border-radius:24px;padding:14px 16px}
+.kbc-fxcard{display:flex;align-items:center;justify-content:space-between;gap:8px;height:72px;background:var(--kb-bg-inset,rgba(255,255,255,.06))}
+.kbc-fxval{flex:1;min-width:0;text-align:right;font-family:var(--kb-font-display,inherit);font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kbc-fxval--out{color:var(--kb-accent-text,var(--kb-fg-1,#f2f3f7))}
+.kbc-pill{height:36px;border-radius:999px;padding:0 8px 0 12px;display:flex;align-items:center;gap:6px;flex:none;font-size:14px;font-weight:600;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
+.kbc-swap{position:absolute;left:50%;top:50%;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7));box-shadow:0 0 0 4px var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27))}
+.kbc-rate{display:flex;align-items:center;gap:8px;margin-top:10px;min-height:28px;font-variant-numeric:tabular-nums}
+.kbc-rate-text{flex:1;min-width:0;font-size:13px;color:var(--kb-fg-2,#b4b8c6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kbc-rate-time{font-size:12px;color:var(--kb-fg-3,#868b9b)}
+.kbc-mini-icon{width:28px;height:28px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:none;background:transparent;color:var(--kb-fg-2,#b4b8c6)}
+.kbc-mini-icon:hover{background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
+.kbc-spin .kbc-icon{animation:kbc-rot 1s linear infinite}
+@keyframes kbc-rot{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.kbc-spin .kbc-icon{animation:none}}
+.kbc-warn{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--kb-warning,#f5b84a)}
+.kbc-copy{grid-column:4;grid-row:3 / span 2;height:auto;flex-direction:column;gap:4px}
+.kbc-overlay{position:absolute;inset:0;z-index:10;border-radius:32px;padding:20px;background:var(--kb-bg-shell,var(--theme-bg-dark,#1b1e27))}
+.kbc-input{width:100%;height:44px;border-radius:999px;padding:0 16px 0 44px;font-size:14px;outline:none;border:0;background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
+.kbc-input::placeholder{color:var(--kb-fg-3,#868b9b)}
+.kbc-search-ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--kb-fg-2,#b4b8c6);pointer-events:none}
+.kbc-row{width:100%;min-height:56px;border-radius:16px;padding:8px 14px;display:flex;align-items:center;gap:12px;text-align:left;margin-bottom:8px;background:var(--kb-bg-tile,var(--theme-surface,#242833));color:var(--kb-fg-1,#f2f3f7)}
 .kbc-row--sel{background:var(--kb-bg-container,var(--theme-accent-glow,rgba(99,102,241,.25)));color:var(--kb-on-container,var(--kb-fg-1,#f2f3f7))}
+.kbc-cur-code{display:block;font-size:14px;font-weight:600;line-height:1.2}
+.kbc-cur-name{display:block;font-size:12px;color:var(--kb-fg-2,#b4b8c6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kbc-row--sel .kbc-cur-name{color:inherit;opacity:.8}
+.kbc-hist{flex-direction:column;align-items:flex-end;gap:2px}
+.kbc-hist-expr{font-size:12px;color:var(--kb-fg-2,#b4b8c6);font-variant-numeric:tabular-nums;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kbc-hist-res{font-family:var(--kb-font-display,inherit);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kbc-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:40px 0;font-size:14px;color:var(--kb-fg-2,#b4b8c6)}
+.kbc-text-btn{display:flex;align-items:center;justify-content:center;gap:6px;height:40px;border-radius:999px;font-size:13px;font-weight:600;background:transparent;color:var(--kb-fg-2,#b4b8c6)}
+.kbc-text-btn:hover{background:var(--kb-bg-inset,rgba(255,255,255,.06));color:var(--kb-fg-1,#f2f3f7)}
 `;
 if (typeof document !== 'undefined' && !document.getElementById('kobar-calc-canli-css')) {
     const styleEl = document.createElement('style');
@@ -397,8 +459,9 @@ const publishCalcTile = () => {
             try { pretty = new Intl.NumberFormat(lang, { maximumFractionDigits: 10 }).format(num); } catch (e) {}
             state.label = (CALC_TILE_LABELS[lang] || CALC_TILE_LABELS.en).replace('{r}', pretty);
             // value only when the plain result fits 5 characters; otherwise the host shows its label template.
-            if (calcLastResult.length <= 5) state.value = calcLastResult;
+            if (calcLastResult.length <= 5) { state.value = calcLastResult; state.caption = '='; }
         }
+        if (state.value === undefined) { state.value = '0'; state.caption = '='; }
         ext.setBarItemState(CALC_BTN_ID, state);
     } catch (e) {}
 };
@@ -446,6 +509,7 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectorMode, setSelectorMode] = useState<'from' | 'to' | null>(null);
     const [copyFeedback, setCopyFeedback] = useState(false);
+    const [historyOpen, setHistoryOpen] = useState(false);
     const [lastFetched, setLastFetched] = useState<Date | null>(null);
 
     // Fetch and caching rates
@@ -633,8 +697,8 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
     const getPopupStyle = (): React.CSSProperties => {
         if (!anchorRect) return { display: 'none' };
         
-        const popupHeight = Math.min(mode === 'scientific' ? 790 : 640, (screenBounds?.height ?? 800) - 48);
-        const popupWidth = mode === 'scientific' ? 400 : 320;
+        const popupHeight = Math.min(mode === 'currency' ? 600 : 580, (screenBounds?.height ?? 800) - 48);
+        const popupWidth = mode === 'scientific' ? 480 : 320;
         const screenHeight = screenBounds?.height ?? 800;
         const screenWidth = screenBounds?.width ?? 1200;
         const offsetTop = sidebarPosition ? sidebarPosition.y : 0;
@@ -707,8 +771,8 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
             if (!popupRef.current || !anchorRect || !isSmartRef.current) return;
             const newX = e.detail.x;
             const newY = e.detail.y;
-            const popupHeight = Math.min(mode === 'scientific' ? 790 : 640, (screenBounds?.height ?? 800) - 48);
-            const popupWidth = mode === 'scientific' ? 400 : 320;
+            const popupHeight = Math.min(mode === 'currency' ? 600 : 580, (screenBounds?.height ?? 800) - 48);
+            const popupWidth = mode === 'scientific' ? 480 : 320;
             
             const screenXInViewport = (screenBounds?.x ?? 0) - window.screenX;
             const screenYInViewport = (screenBounds?.y ?? 0) - window.screenY;
@@ -946,7 +1010,14 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
 
     React.useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && (historyOpen || selectorMode)) {
+                setHistoryOpen(false);
+                setSelectorMode(null);
+                setSearchQuery('');
+                return;
+            }
             if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) return;
+            if (historyOpen || selectorMode) return;
 
             const { key } = e;
 
@@ -975,246 +1046,253 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [display, prevValue, operator, waitingForOperand, parenStack, mode, currencyAmount]);
+    }, [display, prevValue, operator, waitingForOperand, parenStack, mode, currencyAmount, historyOpen, selectorMode]);
+
+    const copyConverted = () => {
+        const cleanVal = convertedAmountStr.replace(/[^\d.]/g, '');
+        navigator.clipboard.writeText(cleanVal);
+        (window as any).api?.writeToClipboard?.({ type: 'text', content: cleanVal });
+        setCopyFeedback(true);
+        setTimeout(() => setCopyFeedback(false), 1500);
+    };
+
+    const setCalcMode = (next: 'basic' | 'scientific') => {
+        setMode(next);
+        const sci = next === 'scientific';
+        setIsScientific(sci);
+        localStorage.setItem('kobar_calc_scientific', sci ? 'true' : 'false');
+    };
+
+    const recallHistory = (entry: string) => {
+        const result = entry.split(' = ').pop() || '0';
+        setDisplay(result);
+        setPrevValue(null);
+        setOperator(null);
+        setWaitingForOperand(true);
+        operatorJustPressed.current = false;
+        setHistoryOpen(false);
+    };
 
     const CalcButton = ({ onClick, children, className = '', title }: { onClick: () => void; children: React.ReactNode; className?: string; title?: string }) => (
-        <button
-            onClick={onClick}
-            className={`kbc-key no-drag-region ${className}`}
-            title={title}
-            aria-label={title}
-        >
+        <button onClick={onClick} className={`kbc-key no-drag-region ${className}`} title={title} aria-label={title}>
             {children}
         </button>
     );
 
     const SciFnButton = ({ onClick, children, title }: { onClick: () => void; children: React.ReactNode; title?: string }) => (
-        <button
-            onClick={onClick}
-            className="kbc-sci no-drag-region"
-            title={title}
-            aria-label={title}
-        >
+        <button onClick={onClick} className="kbc-sci no-drag-region" title={title} aria-label={title}>
             {children}
         </button>
+    );
+
+    const isCurrency = mode === 'currency';
+    const isSci = mode === 'scientific';
+    const calcActive = !isCurrency;
+
+    const sciFns: Array<[string, string, () => void]> = [
+        ['sin', 'Sine', () => handleScientific('sin')], ['cos', 'Cosine', () => handleScientific('cos')],
+        ['tan', 'Tangent', () => handleScientific('tan')], ['ln', 'Natural log', () => handleScientific('ln')],
+        ['log', 'Log base 10', () => handleScientific('log')], ['sin⁻¹', 'Arc sine', () => handleScientific('asin')],
+        ['cos⁻¹', 'Arc cosine', () => handleScientific('acos')], ['tan⁻¹', 'Arc tangent', () => handleScientific('atan')],
+        ['eˣ', 'e to the power x', () => handleScientific('e^x')], ['10ˣ', '10 to the power x', () => handleScientific('10^x')],
+        ['√', 'Square root', () => handleScientific('√')], ['∛', 'Cube root', () => handleScientific('∛')],
+        ['x²', 'Square', () => handleScientific('x²')], ['x³', 'Cube', () => handleScientific('x³')],
+        ['xʸ', 'Power', () => handleOperator('^')], ['n!', 'Factorial', () => handleScientific('n!')],
+        ['1/x', 'Reciprocal', () => handleScientific('1/x')], ['|x|', 'Absolute value', () => handleScientific('|x|')],
+        ['π', 'Pi', () => insertConstant(Math.PI)], ['e', 'Euler number', () => insertConstant(Math.E)],
+    ];
+
+    const keypad = (
+        <div className="kbc-grid kbc-pad">
+            <CalcButton onClick={handleClear} className="kbc-key--danger">C</CalcButton>
+            <CalcButton onClick={() => handleScientific('±')} className="kbc-key--util" title="Plus/Minus">±</CalcButton>
+            <CalcButton onClick={() => handleScientific('%')} className="kbc-key--util" title="Percentage">%</CalcButton>
+            <CalcButton onClick={() => handleOperator('÷')} className="kbc-key--op">÷</CalcButton>
+            {[7, 8, 9].map(n => <CalcButton key={n} onClick={() => handleDigit(String(n))}>{n}</CalcButton>)}
+            <CalcButton onClick={() => handleOperator('×')} className="kbc-key--op">×</CalcButton>
+            {[4, 5, 6].map(n => <CalcButton key={n} onClick={() => handleDigit(String(n))}>{n}</CalcButton>)}
+            <CalcButton onClick={() => handleOperator('-')} className="kbc-key--op">−</CalcButton>
+            {[1, 2, 3].map(n => <CalcButton key={n} onClick={() => handleDigit(String(n))}>{n}</CalcButton>)}
+            <CalcButton onClick={() => handleOperator('+')} className="kbc-key--op">+</CalcButton>
+            <CalcButton onClick={() => handleDigit('0')}>0</CalcButton>
+            <CalcButton onClick={() => !display.includes('.') && handleDigit('.')}>.</CalcButton>
+            <CalcButton onClick={handleBackspace} title="Backspace">
+                <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>backspace</span>
+            </CalcButton>
+            <CalcButton onClick={handleEqual} className="kbc-key--eq" title="=">=</CalcButton>
+        </div>
     );
 
     return (
         <div
             ref={popupRef}
-            className={`kbc-shell pointer-events-auto overflow-hidden ${mode === 'scientific' ? 'kbc-dense' : ''}`}
+            className={`kbc-shell pointer-events-auto ${isSci ? 'kbc-wide' : ''}`}
             style={getPopupStyle()}
         >
             {/* Header */}
-            <div className="flex items-center" style={{ gap: 12, marginBottom: 12, flex: "none" }}>
+            <div className="flex items-center" style={{ gap: 12, marginBottom: 16, flex: 'none' }}>
                 <div className="kbc-hicon">
-                    <span className="kbc-icon kbc-icon--fill material-symbols-outlined" style={{ fontSize: 24 }}>{mode === 'currency' ? 'payments' : 'calculate'}</span>
+                    <span className="kbc-icon kbc-icon--fill material-symbols-outlined" style={{ fontSize: 24 }}>{isCurrency ? 'payments' : 'calculate'}</span>
                 </div>
                 <div className="flex-1 min-w-0 drag-region">
-                    <div className="kbc-title">{mode === 'currency' ? t('currencyConverter') : t('calculator')}</div>
+                    <div className="kbc-title">{isCurrency ? t('currencyConverter') : t('calculator')}</div>
                 </div>
-                <div className="flex items-center" style={{ gap: 6 }}>
-                    {mode === 'scientific' && (
+                <div className="flex items-center" style={{ gap: 8 }}>
+                    {!isCurrency && (
                         <button
-                            onClick={() => setAngleMode(angleMode === 'DEG' ? 'RAD' : 'DEG')}
-                            className="kbc-chip no-drag-region"
-                            title={angleMode}
+                            onClick={() => setHistoryOpen(true)}
+                            className="kbc-circle no-drag-region"
+                            title={t('history')}
+                            aria-label={t('history')}
                         >
-                            {angleMode}
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>history</span>
                         </button>
                     )}
-                    <button
-                        onClick={() => onClose()}
-                        className="kbc-circle no-drag-region"
-                        title={tc()}
-                        aria-label={tc()}
-                    >
+                    <button onClick={() => onClose()} className="kbc-circle no-drag-region" title={tc()} aria-label={tc()}>
                         <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>close</span>
                     </button>
                 </div>
             </div>
 
-            {/* Mode switcher */}
+            {/* View switcher */}
             <div className="kbc-seg" role="group" style={{ flex: 'none' }}>
-                {[['basic', 'segStandard', 'basicMode'], ['scientific', 'segScientific', 'scientificMode'], ['currency', 'segCurrency', 'currencyConverter']].map(([m, k, full]) => (
-                    <button
-                        key={m}
-                        className="no-drag-region"
-                        aria-pressed={mode === m}
-                        title={t(full)}
-                        onClick={() => {
-                            if (m === 'scientific') {
-                                setMode('scientific');
-                                setIsScientific(true); localStorage.setItem('kobar_calc_scientific', 'true');
-                            } else if (m === 'basic') {
-                                setMode('basic');
-                                setIsScientific(false); localStorage.setItem('kobar_calc_scientific', 'false');
-                            } else {
-                                setMode('currency');
-                            }
-                        }}
-                    >
-                        {t(k)}
-                    </button>
-                ))}
+                <button
+                    className="no-drag-region"
+                    aria-pressed={calcActive}
+                    onClick={() => setCalcMode(isScientific ? 'scientific' : 'basic')}
+                >
+                    {t('calculator')}
+                </button>
+                <button className="no-drag-region" aria-pressed={isCurrency} onClick={() => setMode('currency')}>
+                    {t('segCurrency')}
+                </button>
             </div>
 
             <div className="kbc-body">
-            {mode === 'currency' ? (
-                <div className="flex-1 flex flex-col">
-                    {/* Currency inputs display block */}
-                    <div className="kbc-card flex flex-col gap-2 relative" style={{ marginBottom: 12 }}>
-                        
-                        {/* Source Currency Input Row */}
-                        <div className="flex items-center justify-between gap-2">
-                            <button
-                                onClick={() => setSelectorMode('from')}
-                                className="kbc-pill no-drag-region"
-                            >
+            {isCurrency ? (
+                <div className="flex flex-col">
+                    <div className="kbc-fx">
+                        <div className="kbc-card kbc-fxcard">
+                            <button onClick={() => setSelectorMode('from')} className="kbc-pill no-drag-region">
                                 <span>{CURRENCY_DETAILS[fromCurrency]?.flag || '🪙'}</span>
-                                <span className="font-bold">{fromCurrency}</span>
-                                <span className="kbc-icon material-symbols-outlined text-[14px] text-slate-400">arrow_drop_down</span>
+                                <span>{fromCurrency}</span>
+                                <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 18 }}>arrow_drop_down</span>
                             </button>
-                            <div className="kbc-hero-val truncate flex-1 text-right max-w-[180px]" style={{ fontSize: 24 }}>
-                                {currencyAmount}
-                            </div>
+                            <div className="kbc-fxval" aria-live="polite">{currencyAmount}</div>
                         </div>
-
-                        {/* Target Currency Output Row */}
-                        <div className="flex items-center justify-between gap-2">
-                            <button
-                                onClick={() => setSelectorMode('to')}
-                                className="kbc-pill no-drag-region"
-                            >
+                        <div className="kbc-card kbc-fxcard">
+                            <button onClick={() => setSelectorMode('to')} className="kbc-pill no-drag-region">
                                 <span>{CURRENCY_DETAILS[toCurrency]?.flag || '🪙'}</span>
-                                <span className="font-bold">{toCurrency}</span>
-                                <span className="kbc-icon material-symbols-outlined text-[14px] text-slate-400">arrow_drop_down</span>
+                                <span>{toCurrency}</span>
+                                <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 18 }}>arrow_drop_down</span>
                             </button>
-                            <div className="flex items-center justify-end flex-1 min-w-0">
-                                <div className="kbc-hero-val truncate max-w-[150px] mr-1.5" style={{ fontSize: 24, color: 'var(--kb-accent-text, var(--kb-fg-1, #f2f3f7))' }}>
-                                    {convertedAmountStr}
-                                </div>
-                            </div>
+                            <div className="kbc-fxval kbc-fxval--out">{convertedAmountStr}</div>
                         </div>
-
-                        {/* Middle Rate & Swap Divider (Footer) */}
-                        <div className="flex items-center justify-between border-t border-white/5 pt-1.5 mt-0.5 text-[10px]">
-                            <div className="text-slate-500 font-medium flex flex-col gap-0.5">
-                                <div className="flex items-center gap-1">
-                                    <span>{currentRateStr}</span>
-                                    <button 
-                                        onClick={fetchRates}
-                                        disabled={ratesLoading}
-                                        className={`p-0.5 rounded hover:bg-white/5 active:scale-95 transition-all text-slate-400 hover:text-white inline-flex items-center justify-center no-drag-region ${ratesLoading ? 'animate-spin' : ''}`}
-                                        title={t('refreshRates')}
-                                    >
-                                        <span className="kbc-icon material-symbols-outlined text-[10px]">refresh</span>
-                                    </button>
-                                </div>
-                                {lastFetchedStr && (
-                                    <div className="text-[10px]" style={{ color: 'var(--kb-fg-3, #868b9b)' }}>
-                                        {t('ratesUpdated')}: {lastFetchedStr}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="flex items-center gap-1.5 no-drag-region">
-                                <button
-                                    onClick={() => {
-                                        const cleanVal = convertedAmountStr.replace(/[^\d.]/g, '');
-                                        navigator.clipboard.writeText(cleanVal);
-                                        (window as any).api?.writeToClipboard?.({ type: 'text', content: cleanVal });
-                                                                                setCopyFeedback(true);
-                                        setTimeout(() => setCopyFeedback(false), 1500);
-                                    }}
-                                    className="kbc-round relative"
-                                    title={t('copyToClipboard')}
-                                >
-                                    <span className="kbc-icon material-symbols-outlined text-[14px]">
-                                        {copyFeedback ? 'check' : 'content_copy'}
-                                    </span>
-                                    {copyFeedback && (
-                                        <span className="absolute bottom-full right-0 mb-1 px-1.5 py-0.5 text-[8px] bg-slate-950 text-white rounded border border-white/10 whitespace-nowrap">
-                                            {t('copied')}
-                                        </span>
-                                    )}
-                                </button>
-                                <button
-                                    onClick={handleSwapCurrencies}
-                                    className="kbc-round"
-                                    title="Swap Currencies"
-                                >
-                                    <span className="kbc-icon material-symbols-outlined text-[14px] font-bold">swap_vert</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        {ratesError && (
-                            <div className="text-[9px] text-yellow-500 font-medium text-center mt-1">
-                                {t('failedToFetchRates')}
-                            </div>
-                        )}
+                        <button
+                            onClick={handleSwapCurrencies}
+                            className="kbc-swap no-drag-region"
+                            title={t('swapCurrencies')}
+                            aria-label={t('swapCurrencies')}
+                        >
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>swap_vert</span>
+                        </button>
                     </div>
 
-                    {/* Currency Keypad */}
-                    <div className="grid grid-cols-4 gap-2">
-                        <CalcButton onClick={() => handleCurrencyDigit('7')} className="">7</CalcButton>
-                        <CalcButton onClick={() => handleCurrencyDigit('8')} className="">8</CalcButton>
-                        <CalcButton onClick={() => handleCurrencyDigit('9')} className="">9</CalcButton>
-                        <CalcButton onClick={handleCurrencyBackspace} className="kbc-key--danger" title="Backspace">
-                            <span className="kbc-icon material-symbols-outlined text-[16px]">backspace</span>
-                        </CalcButton>
-
-                        <CalcButton onClick={() => handleCurrencyDigit('4')} className="">4</CalcButton>
-                        <CalcButton onClick={() => handleCurrencyDigit('5')} className="">5</CalcButton>
-                        <CalcButton onClick={() => handleCurrencyDigit('6')} className="">6</CalcButton>
-                        <CalcButton onClick={handleCurrencyClear} className="kbc-key--danger">C</CalcButton>
-
-                        <CalcButton onClick={() => handleCurrencyDigit('1')} className="">1</CalcButton>
-                        <CalcButton onClick={() => handleCurrencyDigit('2')} className="">2</CalcButton>
-                        <CalcButton onClick={() => handleCurrencyDigit('3')} className="">3</CalcButton>
-                        <CalcButton 
-                            onClick={() => {
-                                const cleanVal = convertedAmountStr.replace(/[^\d.]/g, '');
-                                navigator.clipboard.writeText(cleanVal);
-                                (window as any).api?.writeToClipboard?.({ type: 'text', content: cleanVal });
-                                                                setCopyFeedback(true);
-                                setTimeout(() => setCopyFeedback(false), 1500);
-                            }}
-                            className="kbc-key--op"
-                            title={t('copyOutputValue')}
+                    <div className="kbc-rate">
+                        <span className="kbc-rate-text">{currentRateStr}</span>
+                        {lastFetchedStr && <span className="kbc-rate-time" title={t('ratesUpdated')}>{lastFetchedStr}</span>}
+                        <button
+                            onClick={fetchRates}
+                            disabled={ratesLoading}
+                            className={`kbc-mini-icon no-drag-region ${ratesLoading ? 'kbc-spin' : ''}`}
+                            title={t('refreshRates')}
+                            aria-label={t('refreshRates')}
                         >
-                            Copy
-                        </CalcButton>
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 18 }}>refresh</span>
+                        </button>
+                    </div>
+                    {ratesError && (
+                        <div className="kbc-warn" role="status">
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 16 }}>cloud_off</span>
+                            <span>{t('failedToFetchRates')}</span>
+                        </div>
+                    )}
 
-                        <CalcButton onClick={() => handleCurrencyDigit('0')} className="">0</CalcButton>
-                        <CalcButton onClick={() => handleCurrencyDigit('00')} className="">00</CalcButton>
-                        <CalcButton onClick={handleCurrencyDot} className="">.</CalcButton>
-                        <CalcButton onClick={handleSwapCurrencies} className="kbc-key--eq" title={t('swapCurrencies')}>{t('swap')}</CalcButton>
+                    <div className="kbc-grid kbc-pad" style={{ marginTop: 12 }}>
+                        <CalcButton onClick={() => handleCurrencyDigit('7')}>7</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('8')}>8</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('9')}>9</CalcButton>
+                        <CalcButton onClick={handleCurrencyBackspace} className="kbc-key--util" title="Backspace">
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>backspace</span>
+                        </CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('4')}>4</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('5')}>5</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('6')}>6</CalcButton>
+                        <CalcButton onClick={handleCurrencyClear} className="kbc-key--danger">C</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('1')}>1</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('2')}>2</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('3')}>3</CalcButton>
+                        <button
+                            onClick={copyConverted}
+                            className="kbc-key kbc-key--eq kbc-copy no-drag-region"
+                            title={t('copyOutputValue')}
+                            aria-label={t('copyOutputValue')}
+                        >
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 22 }}>{copyFeedback ? 'check' : 'content_copy'}</span>
+                            <span style={{ fontSize: 12 }}>{copyFeedback ? t('copied') : t('copy')}</span>
+                        </button>
+                        <CalcButton onClick={() => handleCurrencyDigit('0')}>0</CalcButton>
+                        <CalcButton onClick={() => handleCurrencyDigit('00')}>00</CalcButton>
+                        <CalcButton onClick={handleCurrencyDot}>.</CalcButton>
                     </div>
                 </div>
             ) : (
                 <>
-                    {/* Display */}
-                    <div className="kbc-hero" style={{ marginBottom: 12 }}>
+                    <div className="kbc-hero">
                         <div className="kbc-hero-sub">
                             {parenStack.map((item, index) => (
                                 <span key={index}>{item.prevValue !== null ? `${formatDisplay(item.prevValue)} ${item.operator} (` : '( '}</span>
                             ))}
                             {prevValue !== null ? `${formatDisplay(prevValue)} ${operator}` : ''}
                         </div>
-                        <div className="kbc-hero-val" aria-live="polite">
-                            {formatDisplay(display)}
-                        </div>
+                        <div className="kbc-hero-val" aria-live="polite">{formatDisplay(display)}</div>
                     </div>
 
-                    {/* Memory Row (Scientific only) */}
-                    {isScientific && (
-                        <div className="grid grid-cols-4 gap-1.5 mb-2">
+                    <div className="kbc-tools">
+                        <button onClick={handleParenOpen} className="kbc-mini no-drag-region" title="(" aria-label="(">(</button>
+                        <button onClick={handleParenClose} className="kbc-mini no-drag-region" title=")" aria-label=")">)</button>
+                        <button onClick={() => handleOperator('mod')} className="kbc-mini no-drag-region" title="Modulo">mod</button>
+                        <span style={{ flex: 1 }} />
+                        {isSci && (
+                            <button
+                                onClick={() => setAngleMode(angleMode === 'DEG' ? 'RAD' : 'DEG')}
+                                className="kbc-mini no-drag-region"
+                                title={angleMode}
+                                aria-label={angleMode}
+                            >
+                                {angleMode}
+                            </button>
+                        )}
+                        <button
+                            onClick={() => setCalcMode(isSci ? 'basic' : 'scientific')}
+                            className={`kbc-mini no-drag-region ${isSci ? 'kbc-mini--on' : ''}`}
+                            aria-pressed={isSci}
+                            title={t('scientificMode')}
+                        >
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 18 }}>function</span>
+                            {t('segScientific')}
+                        </button>
+                    </div>
+
+                    {isSci && (
+                        <div className="kbc-grid kbc-mem">
                             {['MC', 'MR', 'M+', 'M-'].map(m => (
                                 <button
                                     key={m}
                                     onClick={() => handleMemory(m)}
                                     className={`kbc-sci no-drag-region ${memory !== 0 && (m === 'MR' || m === 'MC') ? 'kbc-sci--on' : ''}`}
+                                    title={m}
+                                    aria-label={m}
                                 >
                                     {m}
                                 </button>
@@ -1222,107 +1300,75 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
                         </div>
                     )}
 
-                    {/* Scientific Functions Grid */}
-                    {isScientific && (
-                        <div className="grid grid-cols-5 gap-1.5 mb-2">
-                            <SciFnButton onClick={() => handleScientific('sin')} title="Sine">sin</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('cos')} title="Cosine">cos</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('tan')} title="Tangent">tan</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('ln')} title="Natural Log">ln</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('log')} title="Log base 10">log</SciFnButton>
-
-                            <SciFnButton onClick={() => handleScientific('asin')} title="Arc Sine">sin⁻¹</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('acos')} title="Arc Cosine">cos⁻¹</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('atan')} title="Arc Tangent">tan⁻¹</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('e^x')} title="e to the power x">eˣ</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('10^x')} title="10 to the power x">10ˣ</SciFnButton>
-
-                            <SciFnButton onClick={() => handleScientific('√')} title="Square Root">√</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('∛')} title="Cube Root">∛</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('x²')} title="Square">x²</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('x³')} title="Cube">x³</SciFnButton>
-                            <SciFnButton onClick={() => handleOperator('^')} title="Power">xʸ</SciFnButton>
-
-                            <SciFnButton onClick={() => handleScientific('n!')} title="Factorial">n!</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('1/x')} title="Reciprocal">1/x</SciFnButton>
-                            <SciFnButton onClick={() => handleScientific('|x|')} title="Absolute">|x|</SciFnButton>
-                            <SciFnButton onClick={() => insertConstant(Math.PI)} title="Pi">π</SciFnButton>
-                            <SciFnButton onClick={() => insertConstant(Math.E)} title="Euler's Number">e</SciFnButton>
+                    {isSci ? (
+                        <div className="kbc-split">
+                            <div className="kbc-grid kbc-fns">
+                                {sciFns.map(([label, title, fn]) => (
+                                    <SciFnButton key={title} onClick={fn} title={title}>{label}</SciFnButton>
+                                ))}
+                            </div>
+                            {keypad}
                         </div>
-                    )}
-
-                    {/* Parentheses */}
-                    <div className="grid grid-cols-4 gap-2 mb-2">
-                        <CalcButton onClick={handleParenOpen} className="kbc-key--op">(</CalcButton>
-                        <CalcButton onClick={handleParenClose} className="kbc-key--op">)</CalcButton>
-                        <CalcButton onClick={() => handleScientific('±')} className="kbc-key--op" title="Plus/Minus">±</CalcButton>
-                        <CalcButton onClick={() => handleOperator('÷')} className="kbc-key--op">÷</CalcButton>
-                    </div>
-
-                    {/* Keypad */}
-                    <div className="grid grid-cols-4 gap-2">
-                        <CalcButton onClick={handleClear} className="kbc-key--danger">C</CalcButton>
-                        <CalcButton onClick={() => handleOperator('mod')} className="kbc-key--op" title="Modulo">mod</CalcButton>
-                        <CalcButton onClick={() => handleScientific('%')} className="kbc-key--op" title="Percentage">%</CalcButton>
-                        <CalcButton onClick={() => handleOperator('×')} className="kbc-key--op">×</CalcButton>
-
-                        {[7, 8, 9].map(n => (
-                            <CalcButton key={n} onClick={() => handleDigit(String(n))} className=""> {n} </CalcButton>
-                        ))}
-                        <CalcButton onClick={() => handleOperator('-')} className="kbc-key--op">−</CalcButton>
-
-                        {[4, 5, 6].map(n => (
-                            <CalcButton key={n} onClick={() => handleDigit(String(n))} className=""> {n} </CalcButton>
-                        ))}
-                        <CalcButton onClick={() => handleOperator('+')} className="kbc-key--op">+</CalcButton>
-
-                        {[1, 2, 3].map(n => (
-                            <CalcButton key={n} onClick={() => handleDigit(String(n))} className=""> {n} </CalcButton>
-                        ))}
-                        <CalcButton onClick={handleEqual} className="kbc-key--eq row-span-2 h-full">=</CalcButton>
-
-                <CalcButton onClick={() => !display.includes('.') && handleDigit('.')} className="">.</CalcButton>
-                <CalcButton onClick={() => handleDigit('0')} className="">0</CalcButton>
-                <CalcButton onClick={handleBackspace} className="" title="Backspace">
-                    <span className="kbc-icon material-symbols-outlined text-[16px]">backspace</span>
-                </CalcButton>
-            </div>
-
-
-
-                    {/* History (Scientific only) */}
-                    {isScientific && history.length > 0 && (
-                        <div className="mt-2 border-t border-white/5 pt-2 max-h-20 overflow-y-auto custom-scrollbar">
-                            {history.map((h, i) => (
-                                <div key={i} className="text-[10px] text-slate-500 truncate py-0.5 tabular-nums">{h}</div>
-                            ))}
-                        </div>
-                    )}
+                    ) : keypad}
                 </>
             )}
             </div>
 
-            {/* Currency Selector Modal */}
+            {/* History */}
+            {historyOpen && !isCurrency && (
+                <div className="kbc-modal kbc-overlay flex flex-col">
+                    <div className="flex items-center" style={{ gap: 12, marginBottom: 16 }}>
+                        <div className="kbc-hicon">
+                            <span className="kbc-icon kbc-icon--fill material-symbols-outlined" style={{ fontSize: 24 }}>history</span>
+                        </div>
+                        <div className="flex-1 min-w-0 drag-region"><div className="kbc-title">{t('history')}</div></div>
+                        <button onClick={() => setHistoryOpen(false)} className="kbc-circle no-drag-region" title={tc()} aria-label={tc()}>
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>close</span>
+                        </button>
+                    </div>
+                    <div className="kbc-body no-drag-region" style={{ flex: 1 }}>
+                        {history.length === 0 ? (
+                            <div className="kbc-empty">
+                                <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 40 }}>receipt_long</span>
+                                <span>{t('noHistory')}</span>
+                            </div>
+                        ) : history.map((h, i) => {
+                            const parts = h.split(' = ');
+                            return (
+                                <button key={i} onClick={() => recallHistory(h)} className="kbc-row kbc-hist">
+                                    <span className="kbc-hist-expr">{parts.slice(0, -1).join(' = ')}</span>
+                                    <span className="kbc-hist-res">{parts[parts.length - 1]}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                    {history.length > 0 && (
+                        <button onClick={() => setHistory([])} className="kbc-text-btn no-drag-region" style={{ marginTop: 8 }}>
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 18 }}>delete_sweep</span>
+                            {t('clearHistory')}
+                        </button>
+                    )}
+                </div>
+            )}
+
+            {/* Currency selector */}
             {selectorMode && (
-                <div className="kbc-modal absolute inset-0 z-[100] flex flex-col">
-                    <div className="flex justify-between items-center mb-3">
-                        <span className="kbc-title" style={{ fontSize: 17 }}>
-                            {t('selectCurrency')}
-                        </span>
+                <div className="kbc-modal kbc-overlay flex flex-col">
+                    <div className="flex items-center" style={{ gap: 12, marginBottom: 16 }}>
+                        <div className="kbc-hicon">
+                            <span className="kbc-icon kbc-icon--fill material-symbols-outlined" style={{ fontSize: 24 }}>currency_exchange</span>
+                        </div>
+                        <div className="flex-1 min-w-0 drag-region"><div className="kbc-title">{t('selectCurrency')}</div></div>
                         <button
-                            onClick={() => {
-                                setSelectorMode(null);
-                                setSearchQuery('');
-                            }}
+                            onClick={() => { setSelectorMode(null); setSearchQuery(''); }}
                             className="kbc-circle no-drag-region" aria-label={tc()} title={tc()}
                         >
-                            <span className="kbc-icon material-symbols-outlined text-[16px]">close</span>
+                            <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>close</span>
                         </button>
                     </div>
 
-                    {/* Search Input */}
-                    <div className="relative mb-3 no-drag-region">
-                        <span className="absolute left-2.5 top-1/2 -translate-y-1/2 kbc-icon material-symbols-outlined text-[16px] text-slate-500">search</span>
+                    <div className="relative no-drag-region" style={{ marginBottom: 12 }}>
+                        <span className="kbc-icon material-symbols-outlined kbc-search-ic" style={{ fontSize: 20 }}>search</span>
                         <input
                             type="text"
                             autoFocus
@@ -1333,20 +1379,15 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
                         />
                     </div>
 
-                    {/* Scrollable Currency List */}
-                    <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 no-drag-region">
+                    <div className="kbc-body no-drag-region" style={{ flex: 1 }}>
                         {(() => {
                             const availableCurrencies = Object.keys(rates);
                             const q = searchQuery.toLowerCase().trim();
-                            
-                            // Filter list
                             const filtered = availableCurrencies.filter(code => {
                                 const details = CURRENCY_DETAILS[code];
                                 const name = details?.name.toLowerCase() || '';
                                 return code.toLowerCase().includes(q) || name.includes(q);
                             });
-
-                            // Sort: popular currencies first, then alphabetical
                             const sorted = [...filtered].sort((a, b) => {
                                 const idxA = POPULAR_CURRENCIES.indexOf(a);
                                 const idxB = POPULAR_CURRENCIES.indexOf(b);
@@ -1358,8 +1399,9 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
 
                             if (sorted.length === 0) {
                                 return (
-                                    <div className="text-center py-6 text-xs text-slate-500">
-                                        {t('noCurrenciesFound')}
+                                    <div className="kbc-empty">
+                                        <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 40 }}>search_off</span>
+                                        <span>{t('noCurrenciesFound')}</span>
                                     </div>
                                 );
                             }
@@ -1371,26 +1413,19 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
                                     <button
                                         key={code}
                                         onClick={() => {
-                                            if (selectorMode === 'from') {
-                                                setFromCurrency(code);
-                                            } else {
-                                                setToCurrency(code);
-                                            }
+                                            if (selectorMode === 'from') setFromCurrency(code);
+                                            else setToCurrency(code);
                                             setSelectorMode(null);
                                             setSearchQuery('');
                                         }}
                                         className={`kbc-row ${isSelected ? 'kbc-row--sel' : ''}`}
                                     >
-                                        <div className="flex items-center gap-2.5 min-w-0">
-                                            <span className="text-base select-none">{details.flag}</span>
-                                            <div className="min-w-0">
-                                                <div className="text-xs font-bold leading-none">{code}</div>
-                                                <div className="text-[10px] text-slate-500 truncate mt-0.5">{details.name}</div>
-                                            </div>
-                                        </div>
-                                        {isSelected && (
-                                            <span className="kbc-icon material-symbols-outlined text-[18px]">check</span>
-                                        )}
+                                        <span style={{ fontSize: 20 }}>{details.flag}</span>
+                                        <span className="min-w-0" style={{ flex: 1 }}>
+                                            <span className="kbc-cur-code">{code}</span>
+                                            <span className="kbc-cur-name">{details.name}</span>
+                                        </span>
+                                        {isSelected && <span className="kbc-icon material-symbols-outlined" style={{ fontSize: 20 }}>check</span>}
                                     </button>
                                 );
                             });
@@ -1401,7 +1436,6 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
         </div>
     );
 };
-
 
 
 (window as any).KoBarExtensions.registerSidebarButton({
