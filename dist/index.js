@@ -964,6 +964,7 @@
       setWaitingForOperand(true);
     };
     const formatDisplay = (val) => {
+      if (val === "∞") return "∞";
       const num = typeof val === "string" ? parseFloat(val) : val;
       if (isNaN(num)) return "Error";
       if (!isFinite(num)) return "∞";

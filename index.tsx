@@ -980,6 +980,7 @@ const CalculatorPluginPanel = ({ onClose, anchorRect }: any) => {
     };
 
     const formatDisplay = (val: number | string): string => {
+        if (val === '∞') return '∞'; // already formatted infinity; do not turn it into Error
         const num = typeof val === 'string' ? parseFloat(val) : val;
         if (isNaN(num)) return 'Error';
         if (!isFinite(num)) return '∞';
