@@ -1,7 +1,7 @@
 {
   "id": "com.kobar.calculator.plugin",
   "name": "Calculator",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A fully-featured scientific calculator and real-time currency converter plugin.",
   "author": "KoBar",
   "entry": "dist/index.js",
@@ -24,7 +24,7 @@
     "ja",
     "hi"
   ],
-  "versionNote": "Updated plugin images.",
+  "versionNote": "New design for KoBar 1.5: large display, clearer keys and currency cards; the bar tile shows the last result.",
   "image": "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Calculator/calculator.png",
   "storeImage": [
     "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Calculator/Calculator1.png",
